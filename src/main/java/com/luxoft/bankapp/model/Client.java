@@ -84,6 +84,10 @@ public class Client {
         repository.update(this);
     }
 
+    public void setAccounts(List<AbstractAccount> accounts) {
+        this.accounts = accounts;
+    }
+
     public List<AbstractAccount> getAccounts() {
 
         return Collections.unmodifiableList(accounts);

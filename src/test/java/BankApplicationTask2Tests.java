@@ -18,7 +18,7 @@ import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@SpringJUnitConfig(locations = "classpath:test-clients.xml")
+@SpringJUnitConfig(classes = BankApplication.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 public class BankApplicationTask2Tests {
@@ -124,8 +124,8 @@ public class BankApplicationTask2Tests {
     public void getNumberOfBankClients() {
         assertEquals(2, bankReport.getNumberOfBankClients());
 
-        BankApplication.workWithExistingClients(banking);
-        BankApplication.bankingServiceDemo(banking);
+        BankApplication.workWithExistingClients(applicationContext);
+        BankApplication.bankingServiceDemo(applicationContext);
 
         assertEquals(3, bankReport.getNumberOfBankClients());
     }
@@ -134,8 +134,8 @@ public class BankApplicationTask2Tests {
     public void getAccountsNumber() {
         assertEquals(3, bankReport.getAccountsNumber());
 
-        BankApplication.workWithExistingClients(banking);
-        BankApplication.bankingServiceDemo(banking);
+        BankApplication.workWithExistingClients(applicationContext);
+        BankApplication.bankingServiceDemo(applicationContext);
 
         assertEquals(5, bankReport.getAccountsNumber());
     }
@@ -144,8 +144,8 @@ public class BankApplicationTask2Tests {
     public void getBankCreditSum() {
         assertEquals(0, bankReport.getBankCreditSum());
 
-        BankApplication.workWithExistingClients(banking);
-        BankApplication.bankingServiceDemo(banking);
+        BankApplication.workWithExistingClients(applicationContext);
+        BankApplication.bankingServiceDemo(applicationContext);
 
         assertEquals(-500, bankReport.getBankCreditSum());
 

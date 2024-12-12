@@ -6,8 +6,6 @@ import com.luxoft.bankapp.model.SavingAccount;
 import com.luxoft.bankapp.service.BankReportService;
 import com.luxoft.bankapp.service.Banking;
 import com.luxoft.bankapp.model.Client.Gender;
-import com.luxoft.bankapp.service.storage.ClientRepository;
-import com.luxoft.bankapp.service.storage.MapClientRepository;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

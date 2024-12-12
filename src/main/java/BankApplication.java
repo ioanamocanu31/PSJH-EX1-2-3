@@ -4,7 +4,6 @@ import com.luxoft.bankapp.model.CheckingAccount;
 import com.luxoft.bankapp.model.Client;
 import com.luxoft.bankapp.model.SavingAccount;
 import com.luxoft.bankapp.service.BankReportService;
-import com.luxoft.bankapp.service.BankReportServiceImpl;
 import com.luxoft.bankapp.service.Banking;
 import com.luxoft.bankapp.model.Client.Gender;
 import com.luxoft.bankapp.service.storage.ClientRepository;
@@ -21,7 +20,6 @@ public class BankApplication {
         ClassPathXmlApplicationContext context =
                 new ClassPathXmlApplicationContext("test-clients.xml");
 
-        ClientRepository repository = new MapClientRepository();
         Banking banking = initialize(context);
 
         workWithExistingClients(banking);
@@ -62,7 +60,7 @@ public class BankApplication {
 
         banking.updateAccount(anna, checking);
 
-        banking.getAllAccounts(anna).stream().forEach(System.out::println);
+        banking.getAllAccounts(anna).forEach(System.out::println);
     }
 
     public static void workWithExistingClients(Banking banking) {

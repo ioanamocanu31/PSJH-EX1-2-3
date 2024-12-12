@@ -25,10 +25,9 @@ public class BankReportServiceImpl implements BankReportService {
     @Override
     public int getAccountsNumber() {
 
-        return repository.getAll()
+        return (int) repository.getAll()
                 .stream()
-                .flatMap(c -> c.getAccounts().stream())
-                .collect(Collectors.toList()).size();
+                .mapToLong(c -> c.getAccounts().size()).sum();
     }
 
     @Override

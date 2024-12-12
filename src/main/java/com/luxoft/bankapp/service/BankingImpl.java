@@ -91,7 +91,7 @@ public class BankingImpl implements Banking {
         return c.getAccounts().stream()
                 .filter(a -> a.getClass() == type)
                 .findFirst()
-                .orElseThrow(() -> new AccountNotFoundException());
+                .orElseThrow(AccountNotFoundException::new);
     }
 
     @Override

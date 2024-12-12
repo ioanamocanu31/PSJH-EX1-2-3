@@ -19,7 +19,7 @@ public class BankApplication {
 
     public static void main(String[] args) {
         ClassPathXmlApplicationContext context =
-                new ClassPathXmlApplicationContext("application-context.xml", "test-clients.xml");
+                new ClassPathXmlApplicationContext("test-clients.xml");
 
         ClientRepository repository = new MapClientRepository();
         Banking banking = initialize(context);
